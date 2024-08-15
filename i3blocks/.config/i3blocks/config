@@ -1,0 +1,23 @@
+separator=false
+
+[volume]
+command=./scripts/volume_label.fish
+interval=-1
+signal=10
+color=#ffff00
+border=#ffff00
+border_top=0
+border_left=0
+border_right=0
+border_bottom=2
+
+[time]
+label=  
+command=date '+%a %d %b %I:%M %p'
+interval=1
+border=#ffffff
+border_top=0
+border_left=0
+border_right=0
+border_bottom=2
+
