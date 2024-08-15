@@ -6,12 +6,13 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 0
 
 require("config.lazy")
 require("config.keymaps")
-require('nebulous').setup()
-require('nebulous.functions').set_variant('twilight')
+-- require('nebulous').setup()
+-- require('nebulous.functions').set_variant('twilight')
+vim.cmd [[colorscheme tokyonight-night]]
 
 require('lualine').setup({
   options = { theme = 'nebulous' },
@@ -30,6 +31,7 @@ require('mason-lspconfig').setup({
     end
   }
 })
+
 
 local cmp = require('cmp')
 local luasnip = require('luasnip')
