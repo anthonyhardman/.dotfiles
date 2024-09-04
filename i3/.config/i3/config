@@ -23,7 +23,7 @@ default_floating_border pixel 1
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id picom -b
-exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/goku.jpg
+exec --no-startup-id feh --bg-tile ~/Pictures/wallpapers/goku.jpg
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -127,6 +127,8 @@ bindsym Mod1+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym Mod1+minus scratchpad show
 
+set $primary_display $(xrandr --query | grep " primary" | cut -d' ' -f1)
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -139,6 +141,10 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+workspace $ws1 output $primary_display
+workspace $ws2 output $primary_display
+workspace $ws3 output $primary_display
 
 # switch to workspace
 bindsym Mod1+1 workspace number $ws1
