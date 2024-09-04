@@ -34,9 +34,7 @@ require('mason-lspconfig').setup({
 
 
 local cmp = require('cmp')
-local luasnip = require('luasnip')
-
-luasnip.config.setup({})
+-- local luasnip = require('luasnip')
 
 cmp.setup({
   snippet = {
