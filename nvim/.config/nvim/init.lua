@@ -8,6 +8,8 @@ vim.opt.softtabstop = 2
 
 vim.opt.scrolloff = 0
 
+vim.o.wrap = false
+
 require("config.lazy")
 require("config.keymaps")
 -- require('nebulous').setup()

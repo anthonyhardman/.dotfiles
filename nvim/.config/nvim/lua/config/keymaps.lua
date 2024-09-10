@@ -20,3 +20,12 @@ vim.keymap.set('n', '<leader>gq', vim.lsp.buf.format, { desc = "Format Buffer" }
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, { desc = "Code Action" })
+
+vim.keymap.set("n", "<leader>yy", '"+yy')
+vim.keymap.set("v", "<leader>y", '"+y')
+
+vim.keymap.set("v", "<Tab>", ">gv")
+vim.keymap.set("v", "<S-Tab>", "<gv")
+
+vim.keymap.set('n', '<space>e', function() vim.diagnostic.open_float(0, {scope="line"}) end)
+
