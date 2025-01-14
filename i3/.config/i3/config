@@ -17,6 +17,9 @@ font pango:monospace 8
 default_border pixel 1
 default_floating_border pixel 1
 
+for_window[class="steam"] floating enable
+for_window[class="steam" title="^Steam$"] floating disable
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -30,13 +33,17 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+exec --no-startup-id xrandr --output DP-0 --mode 5120x1440 --rate 240.00
+
 exec_always --no-startup-id ~/.config/i3/polybar.sh &
+
+# exec --no-startup-id picom
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -112,6 +119,8 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+bindsym $mod+Shift+m move position 0 0
 
 # focus the child container
 #bindsym $mod+d focus child
