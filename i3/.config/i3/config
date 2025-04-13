@@ -43,6 +43,8 @@ exec --no-startup-id xrandr --output DP-0 --mode 5120x1440 --rate 240.00
 
 exec_always --no-startup-id ~/.config/i3/polybar.sh &
 
+exec_always --no-startup-id ~/.config/i3/noscreensaver.sh &
+
 # exec --no-startup-id picom
 
 # Use pactl to adjust volume in PulseAudio.

@@ -104,3 +104,45 @@ require("nvim-treesitter.configs").setup({
 })
 
 require("Comment").setup({})
+require("mini.surround").setup()
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.wrap = true -- Enable line wrap
+		vim.opt_local.linebreak = true -- Break lines at word boundaries
+		vim.opt_local.list = true -- Hide list characters like `↵` vim.opt_local.expandtab = true
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.tabstop = 2
+		vim.opt_local.softtabstop = 2
+	end,
+})
+
+local lspconfig = require("lspconfig")
+
+local function find_nearest_ltex_dict()
+	local path = vim.fn.expand("%:p:h")
+	local Path = require("plenary.path")
+
+	while path ~= "/" do
+		local dict_path = Path:new(path) / ".ltex" / "dictionary.en-US.txt"
+		if dict_path:exists() then
+			return dict_path:readlines()
+		end
+		path = Path:new(path):parent().filename
+	end
+	return {} -- fallback: no dictionary found
+end
+
+lspconfig.ltex.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		ltex = {
+			dictionary = { ["en-US"] = find_nearest_ltex_dict() },
+			disabledRules = {
+				["en-US"] = { "PHRASE_REPETITION" },
+			},
+		},
+	},
+})
