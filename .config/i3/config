@@ -19,6 +19,7 @@ default_floating_border pixel 1
 
 for_window[class="steam"] floating enable
 for_window[class="steam" title="^Steam$"] floating disable
+for_window[title="TravelerGame"] floating enable
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -44,6 +45,10 @@ exec --no-startup-id xrandr --output DP-0 --mode 5120x1440 --rate 240.00
 exec_always --no-startup-id ~/.config/i3/polybar.sh &
 
 exec_always --no-startup-id ~/.config/i3/noscreensaver.sh &
+
+exec --no-startup-id ibus-daemon -drx
+
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/goku.jpg
 
 # exec --no-startup-id picom
 
@@ -74,6 +79,9 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+
+# ibus language switcher
+bindsym $mod+i exec --no-startup-id ~/.config/ibus-rofi.sh
 
 # change focus
 bindsym $mod+j focus left
