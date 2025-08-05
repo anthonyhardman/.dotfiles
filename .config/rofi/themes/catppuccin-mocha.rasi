@@ -1,0 +1,77 @@
+* {
+    /* Catppuccin Mocha colors */
+    bg:          #1e1e2e80;  /* 50% transparent */
+    bg-alt:      #313244;
+    fg:          #cdd6f4;
+    primary:     #89b4fa;
+    accent:      #f38ba8;
+    disabled:    #6c7086;
+    
+    background-color: transparent;
+    text-color: @fg;
+    font: "FiraCode Nerd Font Medium 12";
+}
+
+window {
+    background-color: @bg;
+    border: 2px solid;
+    border-color: @primary;
+    border-radius: 12px;
+    width: 500px;
+    padding: 0px;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [ inputbar, listview ];
+    spacing: 8px;
+    padding: 16px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border-radius: 8px;
+    padding: 12px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @primary;
+    padding: 0px 8px 0px 0px;
+}
+
+entry {
+    background-color: transparent;
+    placeholder: "Search...";
+    placeholder-color: @disabled;
+}
+
+listview {
+    background-color: transparent;
+    lines: 6;
+    spacing: 4px;
+    scrollbar: false;
+}
+
+element {
+    background-color: transparent;
+    border-radius: 6px;
+    padding: 8px;
+}
+
+element selected {
+    background-color: @bg-alt;
+    text-color: @primary;
+}
+
+element-text {
+    background-color: transparent;
+    highlight: bold;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 20px;
+    padding: 0px 8px 0px 0px;
+}
